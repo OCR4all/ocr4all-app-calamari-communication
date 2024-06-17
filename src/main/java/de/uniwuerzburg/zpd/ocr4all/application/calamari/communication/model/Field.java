@@ -26,6 +26,11 @@ public class Field<T> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * The index.
+	 */
+	private int index;
+
+	/**
 	 * The argument.
 	 */
 	private String argument;
@@ -56,6 +61,26 @@ public class Field<T> implements Serializable {
 	 */
 	@JsonProperty("disabled")
 	private boolean isDisabled;
+
+	/**
+	 * Returns the index.
+	 *
+	 * @return The index.
+	 * @since 17
+	 */
+	public int getIndex() {
+		return index;
+	}
+
+	/**
+	 * Set the index.
+	 *
+	 * @param index The index to set.
+	 * @since 17
+	 */
+	public void setIndex(int index) {
+		this.index = index;
+	}
 
 	/**
 	 * Returns the argument.
