@@ -24,6 +24,9 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		
+		<!-- use the respective Spring Boot version of the ocr4all-app project -->
+		<SpringBoot_ocr4all-app_com.fasterxml.jackson.core.jackson-databind.version>2.15.4</SpringBoot_ocr4all-app_com.fasterxml.jackson.core.jackson-databind.version>
+		
 		<!-- use the respective Spring Boot version of the ocr4all-app-calamari-msa project -->
 		<SpringBoot_ocr4all-app-calamari-msa_jakarta.validation-api.version>3.0.2</SpringBoot_ocr4all-app-calamari-msa_jakarta.validation-api.version>
 		
@@ -32,6 +35,14 @@
 	</properties>
 
  	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${SpringBoot_ocr4all-app_com.fasterxml.jackson.core.jackson-databind.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
 		<dependency>
 			<groupId>jakarta.validation</groupId>
