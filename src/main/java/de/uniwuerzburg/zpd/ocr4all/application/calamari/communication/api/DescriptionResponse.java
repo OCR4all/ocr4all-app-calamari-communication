@@ -29,6 +29,12 @@ public class DescriptionResponse implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * The service provider identifier.
+	 */
+	@NotBlank
+	private String identifier;
+
+	/**
 	 * The service provider description.
 	 */
 	@NotBlank
@@ -60,28 +66,44 @@ public class DescriptionResponse implements Serializable {
 	}
 
 	/**
-	 * Creates a copy of the description response for the api.
+	 * Creates a description response for the api.
 	 * 
-	 * @param descriptionResponse The description response to clone.
+	 * @param identifier  The service provider identifier.
+	 * @param description The service provider description.
+	 * @param categories  The service provider categories.
+	 * @param steps       The service provider steps.
+	 * @param model       The model.
 	 * @since 17
 	 */
-	private DescriptionResponse(DescriptionResponse description) {
+	public DescriptionResponse(@NotBlank String identifier, @NotBlank String description, List<String> categories,
+			List<String> steps, @NotNull Model model) {
 		super();
-
-		this.description = description.getDescription();
-		categories = description.getCategories();
-		steps = description.getSteps();
-		model = description.getModel();
+		
+		this.identifier = identifier;
+		this.description = description;
+		this.categories = categories;
+		this.steps = steps;
+		this.model = model;
 	}
 
 	/**
-	 * Returns the description response for the api ignoring superclass.
-	 * 
-	 * @return The description response for the api ignoring superclass.
+	 * Returns the identifier.
+	 *
+	 * @return The identifier.
 	 * @since 17
 	 */
-	public DescriptionResponse ignoreSuperclass() {
-		return new DescriptionResponse(this);
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	/**
+	 * Set the identifier.
+	 *
+	 * @param identifier The identifier to set.
+	 * @since 17
+	 */
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
 	}
 
 	/**
