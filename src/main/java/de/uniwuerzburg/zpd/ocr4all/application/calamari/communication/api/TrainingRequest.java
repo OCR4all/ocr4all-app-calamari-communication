@@ -9,7 +9,9 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 
 import java.util.List;
 
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.training.Dataset;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Defines training requests for the api.
@@ -25,10 +27,10 @@ public class TrainingRequest extends ProcessRequest {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The model.
+	 * The dataset.
 	 */
-	@NotBlank
-	private String model;
+	@NotNull
+	private Dataset dataset;
 
 	/**
 	 * Default constructor for a training request for the api.
@@ -44,33 +46,33 @@ public class TrainingRequest extends ProcessRequest {
 	 * 
 	 * @param key       The job key.
 	 * @param arguments The Calamari processor arguments.
-	 * @param model     The model.
+	 * @param dataset   The dataset.
 	 * @since 17
 	 */
-	public TrainingRequest(String key, List<String> arguments, String model) {
+	public TrainingRequest(@NotBlank String key, @NotNull List<String> arguments, @NotNull Dataset dataset) {
 		super(key, arguments);
 
-		this.model = model;
+		this.dataset = dataset;
 	}
 
 	/**
-	 * Returns the model.
+	 * Returns the dataset.
 	 *
-	 * @return The model.
+	 * @return The dataset.
 	 * @since 17
 	 */
-	public String getModel() {
-		return model;
+	public Dataset getDataset() {
+		return dataset;
 	}
 
 	/**
-	 * Set the model.
+	 * Set the dataset.
 	 *
-	 * @param model The model to set.
+	 * @param dataset The dataset to set.
 	 * @since 17
 	 */
-	public void setModel(String model) {
-		this.model = model;
+	public void setDataset(Dataset dataset) {
+		this.dataset = dataset;
 	}
 
 }

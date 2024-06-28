@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Defines process requests for the api.
@@ -35,6 +36,7 @@ public class ProcessRequest implements Serializable {
 	/**
 	 * The Calamari processor arguments.
 	 */
+	@NotNull
 	private List<String> arguments = new ArrayList<>();
 
 	/**
@@ -53,10 +55,11 @@ public class ProcessRequest implements Serializable {
 	 * @param arguments The Calamari processor arguments.
 	 * @since 17
 	 */
-	public ProcessRequest(String key, List<String> arguments) {
+	public ProcessRequest(@NotBlank String key, @NotNull List<String> arguments) {
 		super();
 
 		this.key = key.trim();
+		this.arguments = new ArrayList<>();
 
 		if (arguments != null)
 			for (String argument : arguments)
