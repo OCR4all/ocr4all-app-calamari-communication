@@ -27,6 +27,12 @@ public class TrainingRequest extends ProcessRequest {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * The model id.
+	 */
+	@NotBlank
+	private String modelId;
+
+	/**
 	 * The dataset.
 	 */
 	@NotNull
@@ -46,13 +52,36 @@ public class TrainingRequest extends ProcessRequest {
 	 * 
 	 * @param key       The job key.
 	 * @param arguments The Calamari processor arguments.
+	 * @param modelId   The model id.
 	 * @param dataset   The dataset.
 	 * @since 17
 	 */
-	public TrainingRequest(@NotBlank String key, @NotNull List<String> arguments, @NotNull Dataset dataset) {
+	public TrainingRequest(@NotBlank String key, @NotNull List<String> arguments, @NotBlank String modelId,
+			@NotNull Dataset dataset) {
 		super(key, arguments);
 
+		this.modelId = modelId;
 		this.dataset = dataset;
+	}
+
+	/**
+	 * Returns the model id.
+	 *
+	 * @return The model id.
+	 * @since 17
+	 */
+	public String getModelId() {
+		return modelId;
+	}
+
+	/**
+	 * Set the model id.
+	 *
+	 * @param modelId The model id to set.
+	 * @since 17
+	 */
+	public void setModelId(String modelId) {
+		this.modelId = modelId;
 	}
 
 	/**
