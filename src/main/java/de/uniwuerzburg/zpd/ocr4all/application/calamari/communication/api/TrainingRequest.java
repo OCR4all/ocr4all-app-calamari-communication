@@ -39,6 +39,17 @@ public class TrainingRequest extends ProcessRequest {
 	private Dataset dataset;
 
 	/**
+	 * The user.
+	 */
+	private String user;
+
+	/**
+	 * The model configuration.
+	 */
+	@NotNull
+	private ModelConfiguration modelConfiguration;
+
+	/**
 	 * Default constructor for a training request for the api.
 	 * 
 	 * @since 17
@@ -50,18 +61,22 @@ public class TrainingRequest extends ProcessRequest {
 	/**
 	 * Creates a training request for the api.
 	 * 
-	 * @param key       The job key.
-	 * @param arguments The Calamari processor arguments.
-	 * @param modelId   The model id.
-	 * @param dataset   The dataset.
+	 * @param key                The job key.
+	 * @param arguments          The Calamari processor arguments.
+	 * @param modelId            The model id.
+	 * @param dataset            The dataset.
+	 * @param modelConfiguration The model configuration.
+	 * @param user               The user.
 	 * @since 17
 	 */
 	public TrainingRequest(@NotBlank String key, @NotNull List<String> arguments, @NotBlank String modelId,
-			@NotNull Dataset dataset) {
+			@NotNull Dataset dataset, ModelConfiguration modelConfiguration, String user) {
 		super(key, arguments);
 
 		this.modelId = modelId;
 		this.dataset = dataset;
+		this.modelConfiguration = modelConfiguration;
+		this.user = user;
 	}
 
 	/**
@@ -104,4 +119,98 @@ public class TrainingRequest extends ProcessRequest {
 		this.dataset = dataset;
 	}
 
+	/**
+	 * Returns the modelConfiguration.
+	 *
+	 * @return The modelConfiguration.
+	 * @since 17
+	 */
+	public ModelConfiguration getModelConfiguration() {
+		return modelConfiguration;
+	}
+
+	/**
+	 * Set the modelConfiguration.
+	 *
+	 * @param modelConfiguration The modelConfiguration to set.
+	 * @since 17
+	 */
+	public void setModelConfiguration(ModelConfiguration modelConfiguration) {
+		this.modelConfiguration = modelConfiguration;
+	}
+
+	/**
+	 * Returns the user.
+	 *
+	 * @return The user.
+	 * @since 17
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * Set the user.
+	 *
+	 * @param user The user to set.
+	 * @since 17
+	 */
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	/**
+	 * Defines model configurations.
+	 *
+	 * @author <a href="mailto:herbert.baier@uni-wuerzburg.de">Herbert Baier</a>
+	 * @version 1.0
+	 * @since 17
+	 */
+	public static class ModelConfiguration {
+		/**
+		 * The folder.
+		 */
+		@NotBlank
+		private final String folder;
+
+		/**
+		 * The engine file.
+		 */
+		@NotBlank
+		private final String engine;
+
+		/**
+		 * Creates model configurations.
+		 * 
+		 * @param folder The folder.
+		 * @param engine The engine file.
+		 * @since 17
+		 */
+		public ModelConfiguration(String folder, String engine) {
+			super();
+			this.folder = folder;
+			this.engine = engine;
+		}
+
+		/**
+		 * Returns the folder.
+		 *
+		 * @return The folder.
+		 * @since 17
+		 */
+		public String getFolder() {
+			return folder;
+		}
+
+		/**
+		 * Returns the engine.
+		 *
+		 * @return The engine.
+		 * @since 17
+		 */
+		public String getEngine() {
+			return engine;
+		}
+
+	}
 }
