@@ -10,6 +10,7 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 import java.util.List;
 
 import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.training.Dataset;
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.training.ModelConfiguration;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -159,58 +160,4 @@ public class TrainingRequest extends ProcessRequest {
 		this.user = user;
 	}
 
-	/**
-	 * Defines model configurations.
-	 *
-	 * @author <a href="mailto:herbert.baier@uni-wuerzburg.de">Herbert Baier</a>
-	 * @version 1.0
-	 * @since 17
-	 */
-	public static class ModelConfiguration {
-		/**
-		 * The folder.
-		 */
-		@NotBlank
-		private final String folder;
-
-		/**
-		 * The engine file.
-		 */
-		@NotBlank
-		private final String engine;
-
-		/**
-		 * Creates model configurations.
-		 * 
-		 * @param folder The folder.
-		 * @param engine The engine file.
-		 * @since 17
-		 */
-		public ModelConfiguration(String folder, String engine) {
-			super();
-			this.folder = folder;
-			this.engine = engine;
-		}
-
-		/**
-		 * Returns the folder.
-		 *
-		 * @return The folder.
-		 * @since 17
-		 */
-		public String getFolder() {
-			return folder;
-		}
-
-		/**
-		 * Returns the engine.
-		 *
-		 * @return The engine.
-		 * @since 17
-		 */
-		public String getEngine() {
-			return engine;
-		}
-
-	}
 }
