@@ -1,11 +1,11 @@
 /**
  * File:     ModelConfiguration.java
- * Package:  de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.training
+ * Package:  de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core
  * 
  * Author:   Herbert Baier (herbert.baier@uni-wuerzburg.de)
  * Date:     01.07.2024
  */
-package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.training;
+package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core;
 
 /**
  * Defines model configurations.

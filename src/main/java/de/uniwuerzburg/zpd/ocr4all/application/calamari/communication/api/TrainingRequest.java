@@ -9,8 +9,9 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 
 import java.util.List;
 
-import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.training.Dataset;
-import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.training.ModelConfiguration;
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.Batch;
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.BatchArgument;
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.ModelConfiguration;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -37,7 +38,13 @@ public class TrainingRequest extends ProcessRequest {
 	 * The dataset.
 	 */
 	@NotNull
-	private Dataset dataset;
+	private Batch dataset;
+
+	/**
+	 * The models. Null or empty if not model is used.
+	 */
+	@NotNull
+	private BatchArgument models;
 
 	/**
 	 * The user.
@@ -71,7 +78,7 @@ public class TrainingRequest extends ProcessRequest {
 	 * @since 17
 	 */
 	public TrainingRequest(@NotBlank String key, @NotNull List<String> arguments, @NotBlank String modelId,
-			@NotNull Dataset dataset, ModelConfiguration modelConfiguration, String user) {
+			@NotNull Batch dataset, ModelConfiguration modelConfiguration, String user) {
 		super(key, arguments);
 
 		this.modelId = modelId;
@@ -106,7 +113,7 @@ public class TrainingRequest extends ProcessRequest {
 	 * @return The dataset.
 	 * @since 17
 	 */
-	public Dataset getDataset() {
+	public Batch getDataset() {
 		return dataset;
 	}
 
@@ -116,8 +123,28 @@ public class TrainingRequest extends ProcessRequest {
 	 * @param dataset The dataset to set.
 	 * @since 17
 	 */
-	public void setDataset(Dataset dataset) {
+	public void setDataset(Batch dataset) {
 		this.dataset = dataset;
+	}
+
+	/**
+	 * Returns the models. Null or empty if not model is used.
+	 *
+	 * @return The models. Null or empty if not model is used.
+	 * @since 17
+	 */
+	public BatchArgument getModels() {
+		return models;
+	}
+
+	/**
+	 * Set the models. Null or empty if not model is used.
+	 *
+	 * @param models The models to set.
+	 * @since 17
+	 */
+	public void setModels(BatchArgument models) {
+		this.models = models;
 	}
 
 	/**
