@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.BatchArgument;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -40,6 +41,11 @@ public class ProcessRequest implements Serializable {
 	private List<String> arguments = new ArrayList<>();
 
 	/**
+	 * The models. Null or empty if not model is used.
+	 */
+	private List<BatchArgument> models;
+
+	/**
 	 * Default constructor for a process request for the api.
 	 * 
 	 * @since 17
@@ -53,14 +59,16 @@ public class ProcessRequest implements Serializable {
 	 * 
 	 * @param key       The job key.
 	 * @param arguments The Calamari processor arguments.
+	 * @param models    The models. Null or empty if not model is used.
 	 * @since 17
 	 */
-	public ProcessRequest(@NotBlank String key, @NotNull List<String> arguments) {
+	public ProcessRequest(@NotBlank String key, @NotNull List<String> arguments, List<BatchArgument> models) {
 		super();
 
 		this.key = key.trim();
+		this.models = models;
+		
 		this.arguments = new ArrayList<>();
-
 		if (arguments != null)
 			for (String argument : arguments)
 				if (argument != null && !argument.isBlank())
@@ -105,6 +113,26 @@ public class ProcessRequest implements Serializable {
 	 */
 	public void setArguments(List<String> arguments) {
 		this.arguments = arguments;
+	}
+
+	/**
+	 * Returns the models. Null or empty if not model is used.
+	 *
+	 * @return The models. Null or empty if not model is used.
+	 * @since 17
+	 */
+	public List<BatchArgument> getModels() {
+		return models;
+	}
+
+	/**
+	 * Set the models. Null or empty if not model is used.
+	 *
+	 * @param models The models to set.
+	 * @since 17
+	 */
+	public void setModels(List<BatchArgument> models) {
+		this.models = models;
 	}
 
 }

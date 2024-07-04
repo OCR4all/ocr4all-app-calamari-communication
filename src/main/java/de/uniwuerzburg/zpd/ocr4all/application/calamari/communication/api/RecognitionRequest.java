@@ -9,6 +9,7 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 
 import java.util.List;
 
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.BatchArgument;
 import jakarta.validation.constraints.NotBlank;
 
 /**
@@ -56,14 +57,16 @@ public class RecognitionRequest extends ProcessRequest {
 	 * 
 	 * @param key       The job key.
 	 * @param arguments The Calamari processor arguments.
+	 * @param models    The models. Null or empty if not model is used.
 	 * @param folder    The working directory of the job. It is relative to the
 	 *                  project folder.
 	 * @param input     The input folder.
 	 * @param output    The output folder.
 	 * @since 17
 	 */
-	public RecognitionRequest(String key, List<String> arguments, String folder, String input, String output) {
-		super(key, arguments);
+	public RecognitionRequest(String key, List<String> arguments, List<BatchArgument> models, String folder,
+			String input, String output) {
+		super(key, arguments, models);
 
 		this.folder = folder.trim();
 		this.input = input.trim();

@@ -97,7 +97,7 @@ public class Batch implements Serializable {
 		}
 
 		/**
-		 * Creates a dataset.
+		 * Creates an item.
 		 * 
 		 * @param id    The id.
 		 * @param files The files.

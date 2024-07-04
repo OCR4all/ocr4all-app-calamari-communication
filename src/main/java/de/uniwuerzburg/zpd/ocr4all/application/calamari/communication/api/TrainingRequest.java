@@ -41,12 +41,6 @@ public class TrainingRequest extends ProcessRequest {
 	private Batch dataset;
 
 	/**
-	 * The models. Null or empty if not model is used.
-	 */
-	@NotNull
-	private BatchArgument models;
-
-	/**
 	 * The user.
 	 */
 	private String user;
@@ -71,15 +65,16 @@ public class TrainingRequest extends ProcessRequest {
 	 * 
 	 * @param key                The job key.
 	 * @param arguments          The Calamari processor arguments.
+	 * @param models             The models. Null or empty if not model is used.
 	 * @param modelId            The model id.
 	 * @param dataset            The dataset.
 	 * @param modelConfiguration The model configuration.
 	 * @param user               The user.
 	 * @since 17
 	 */
-	public TrainingRequest(@NotBlank String key, @NotNull List<String> arguments, @NotBlank String modelId,
-			@NotNull Batch dataset, ModelConfiguration modelConfiguration, String user) {
-		super(key, arguments);
+	public TrainingRequest(@NotBlank String key, @NotNull List<String> arguments, List<BatchArgument> models,
+			@NotBlank String modelId, @NotNull Batch dataset, ModelConfiguration modelConfiguration, String user) {
+		super(key, arguments, models);
 
 		this.modelId = modelId;
 		this.dataset = dataset;
@@ -125,26 +120,6 @@ public class TrainingRequest extends ProcessRequest {
 	 */
 	public void setDataset(Batch dataset) {
 		this.dataset = dataset;
-	}
-
-	/**
-	 * Returns the models. Null or empty if not model is used.
-	 *
-	 * @return The models. Null or empty if not model is used.
-	 * @since 17
-	 */
-	public BatchArgument getModels() {
-		return models;
-	}
-
-	/**
-	 * Set the models. Null or empty if not model is used.
-	 *
-	 * @param models The models to set.
-	 * @since 17
-	 */
-	public void setModels(BatchArgument models) {
-		this.models = models;
 	}
 
 	/**
