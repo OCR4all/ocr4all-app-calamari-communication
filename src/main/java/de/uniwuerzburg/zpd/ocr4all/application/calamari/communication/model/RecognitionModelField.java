@@ -42,6 +42,11 @@ public class RecognitionModelField extends Field<Object> {
 	private boolean isMultipleModels;
 
 	/**
+	 * The suffix for the model file names.
+	 */
+	private String suffix;
+
+	/**
 	 * Returns the minimum version. Null if not set.
 	 *
 	 * @return The minimum version. Null if not set.
@@ -100,6 +105,26 @@ public class RecognitionModelField extends Field<Object> {
 	 */
 	public void setMultipleModels(boolean isMultipleModels) {
 		this.isMultipleModels = isMultipleModels;
+	}
+
+	/**
+	 * Returns the suffix for the model file names.
+	 *
+	 * @return The suffix for the model file names.
+	 * @since 17
+	 */
+	public String getSuffix() {
+		return suffix;
+	}
+
+	/**
+	 * Set the suffix for the model file names.
+	 *
+	 * @param suffix The suffix to set.
+	 * @since 17
+	 */
+	public void setSuffix(String suffix) {
+		this.suffix = suffix;
 	}
 
 }
