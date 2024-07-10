@@ -9,7 +9,11 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 
 import java.util.List;
 
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.Batch;
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.BatchArgument;
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.ModelConfiguration;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Defines training requests for the api.
@@ -25,10 +29,22 @@ public class TrainingRequest extends ProcessRequest {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The model.
+	 * The model id.
 	 */
 	@NotBlank
-	private String model;
+	private String modelId;
+
+	/**
+	 * The dataset.
+	 */
+	@NotNull
+	private Batch dataset;
+
+	/**
+	 * The model configuration.
+	 */
+	@NotNull
+	private ModelConfiguration modelConfiguration;
 
 	/**
 	 * Default constructor for a training request for the api.
@@ -42,35 +58,81 @@ public class TrainingRequest extends ProcessRequest {
 	/**
 	 * Creates a training request for the api.
 	 * 
-	 * @param key       The job key.
-	 * @param arguments The Calamari processor arguments.
-	 * @param model     The model.
+	 * @param key                The job key.
+	 * @param arguments          The Calamari processor arguments.
+	 * @param models             The models. Null or empty if not model is used.
+	 * @param modelId            The model id.
+	 * @param dataset            The dataset.
+	 * @param modelConfiguration The model configuration.
 	 * @since 17
 	 */
-	public TrainingRequest(String key, List<String> arguments, String model) {
-		super(key, arguments);
+	public TrainingRequest(@NotBlank String key, @NotNull List<String> arguments, List<BatchArgument> models,
+			@NotBlank String modelId, @NotNull Batch dataset, ModelConfiguration modelConfiguration) {
+		super(key, arguments, models);
 
-		this.model = model;
+		this.modelId = modelId;
+		this.dataset = dataset;
+		this.modelConfiguration = modelConfiguration;
 	}
 
 	/**
-	 * Returns the model.
+	 * Returns the model id.
 	 *
-	 * @return The model.
+	 * @return The model id.
 	 * @since 17
 	 */
-	public String getModel() {
-		return model;
+	public String getModelId() {
+		return modelId;
 	}
 
 	/**
-	 * Set the model.
+	 * Set the model id.
 	 *
-	 * @param model The model to set.
+	 * @param modelId The model id to set.
 	 * @since 17
 	 */
-	public void setModel(String model) {
-		this.model = model;
+	public void setModelId(String modelId) {
+		this.modelId = modelId;
+	}
+
+	/**
+	 * Returns the dataset.
+	 *
+	 * @return The dataset.
+	 * @since 17
+	 */
+	public Batch getDataset() {
+		return dataset;
+	}
+
+	/**
+	 * Set the dataset.
+	 *
+	 * @param dataset The dataset to set.
+	 * @since 17
+	 */
+	public void setDataset(Batch dataset) {
+		this.dataset = dataset;
+	}
+
+	/**
+	 * Returns the modelConfiguration.
+	 *
+	 * @return The modelConfiguration.
+	 * @since 17
+	 */
+	public ModelConfiguration getModelConfiguration() {
+		return modelConfiguration;
+	}
+
+	/**
+	 * Set the modelConfiguration.
+	 *
+	 * @param modelConfiguration The modelConfiguration to set.
+	 * @since 17
+	 */
+	public void setModelConfiguration(ModelConfiguration modelConfiguration) {
+		this.modelConfiguration = modelConfiguration;
 	}
 
 }

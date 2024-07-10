@@ -9,6 +9,7 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 
 import java.util.List;
 
+import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.BatchArgument;
 import jakarta.validation.constraints.NotBlank;
 
 /**
@@ -44,11 +45,12 @@ public class EvaluationRequest extends ProcessRequest {
 	 * 
 	 * @param key        The job key.
 	 * @param arguments  The Calamari processor arguments.
+	 * @param models     The models. Null or empty if not model is used.
 	 * @param collection The collection.
 	 * @since 17
 	 */
-	public EvaluationRequest(String key, List<String> arguments, String collection) {
-		super(key, arguments);
+	public EvaluationRequest(String key, List<String> arguments, List<BatchArgument> models, String collection) {
+		super(key, arguments, models);
 
 		this.collection = collection;
 	}

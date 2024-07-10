@@ -49,6 +49,12 @@ public class Model implements Serializable {
 	private List<SelectField> selects;
 
 	/**
+	 * The weights.
+	 */
+
+	private List<WeightField> weights;
+
+	/**
 	 * Returns the booleans.
 	 *
 	 * @return The booleans.
@@ -146,6 +152,26 @@ public class Model implements Serializable {
 	 */
 	public void setSelects(List<SelectField> selects) {
 		this.selects = selects;
+	}
+
+	/**
+	 * Returns the weights.
+	 *
+	 * @return The weights.
+	 * @since 17
+	 */
+	public List<WeightField> getWeights() {
+		return weights;
+	}
+
+	/**
+	 * Set the weights.
+	 *
+	 * @param weights The weights to set.
+	 * @since 17
+	 */
+	public void setWeights(List<WeightField> weights) {
+		this.weights = weights;
 	}
 
 }
