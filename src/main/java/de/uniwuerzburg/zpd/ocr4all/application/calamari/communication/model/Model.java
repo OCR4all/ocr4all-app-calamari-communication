@@ -10,8 +10,6 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.model;
 import java.io.Serializable;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * Define models.
  *
@@ -51,10 +49,10 @@ public class Model implements Serializable {
 	private List<SelectField> selects;
 
 	/**
-	 * The recognition models.
+	 * The weights.
 	 */
-	@JsonProperty("recognition-models")
-	private List<RecognitionModelField> recognitionModels;
+
+	private List<WeightField> weights;
 
 	/**
 	 * Returns the booleans.
@@ -157,23 +155,23 @@ public class Model implements Serializable {
 	}
 
 	/**
-	 * Returns the recognition models.
+	 * Returns the weights.
 	 *
-	 * @return The recognition models.
+	 * @return The weights.
 	 * @since 17
 	 */
-	public List<RecognitionModelField> getRecognitionModels() {
-		return recognitionModels;
+	public List<WeightField> getWeights() {
+		return weights;
 	}
 
 	/**
-	 * Set the recognition models.
+	 * Set the weights.
 	 *
-	 * @param recognitionModels The recognition models to set.
+	 * @param weights The weights to set.
 	 * @since 17
 	 */
-	public void setRecognitionModels(List<RecognitionModelField> recognitionModels) {
-		this.recognitionModels = recognitionModels;
+	public void setWeights(List<WeightField> weights) {
+		this.weights = weights;
 	}
 
 }

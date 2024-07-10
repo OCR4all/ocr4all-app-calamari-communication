@@ -1,5 +1,5 @@
 /**
- * File:     RecognitionModelField.java
+ * File:     WeightField.java
  * Package:  de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.model
  * 
  * Author:   Herbert Baier (herbert.baier@uni-wuerzburg.de)
@@ -11,13 +11,13 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Defines recognition model fields for models.
+ * Defines weight fields for models.
  *
  * @author <a href="mailto:herbert.baier@uni-wuerzburg.de">Herbert Baier</a>
  * @version 1.0
  * @since 17
  */
-public class RecognitionModelField extends Field<Object> {
+public class WeightField extends Field<Object> {
 	/**
 	 * The serial version UID.
 	 */
@@ -36,10 +36,10 @@ public class RecognitionModelField extends Field<Object> {
 	private String maximumVersion;
 
 	/**
-	 * True if multiple models can be selected.
+	 * True if multiple weights can be selected.
 	 */
-	@JsonProperty("multiple-models")
-	private boolean isMultipleModels;
+	@JsonProperty("multiple-select")
+	private boolean isMultipleSelect;
 
 	/**
 	 * The suffix for the model file names.
@@ -85,26 +85,28 @@ public class RecognitionModelField extends Field<Object> {
 	public void setMaximumVersion(String maximumVersion) {
 		this.maximumVersion = maximumVersion;
 	}
+	
+	
 
 	/**
-	 * Returns true if multiple models can be selected.
+	 * Returns true if multiple weights can be selected.
 	 *
-	 * @return True if multiple models can be selected.
+	 * @return True if multiple weights can be selected.
 	 * @since 17
 	 */
-	@JsonGetter("multiple-models")
-	public boolean isMultipleModels() {
-		return isMultipleModels;
+	@JsonGetter("multiple-select")
+	public boolean isMultipleSelect() {
+		return isMultipleSelect;
 	}
 
 	/**
-	 * Set to true if multiple models can be selected.
+	 * Set to true if multiple weights can be selected.
 	 *
-	 * @param isMultipleModels The multiple models flag to set.
+	 * @param isMultipleSelect The select flag to set.
 	 * @since 17
 	 */
-	public void setMultipleModels(boolean isMultipleModels) {
-		this.isMultipleModels = isMultipleModels;
+	public void setMultipleSelect(boolean isMultipleSelect) {
+		this.isMultipleSelect = isMultipleSelect;
 	}
 
 	/**

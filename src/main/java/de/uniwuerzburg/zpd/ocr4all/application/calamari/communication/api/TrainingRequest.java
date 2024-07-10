@@ -41,11 +41,6 @@ public class TrainingRequest extends ProcessRequest {
 	private Batch dataset;
 
 	/**
-	 * The user.
-	 */
-	private String user;
-
-	/**
 	 * The model configuration.
 	 */
 	@NotNull
@@ -69,17 +64,15 @@ public class TrainingRequest extends ProcessRequest {
 	 * @param modelId            The model id.
 	 * @param dataset            The dataset.
 	 * @param modelConfiguration The model configuration.
-	 * @param user               The user.
 	 * @since 17
 	 */
 	public TrainingRequest(@NotBlank String key, @NotNull List<String> arguments, List<BatchArgument> models,
-			@NotBlank String modelId, @NotNull Batch dataset, ModelConfiguration modelConfiguration, String user) {
+			@NotBlank String modelId, @NotNull Batch dataset, ModelConfiguration modelConfiguration) {
 		super(key, arguments, models);
 
 		this.modelId = modelId;
 		this.dataset = dataset;
 		this.modelConfiguration = modelConfiguration;
-		this.user = user;
 	}
 
 	/**
@@ -140,26 +133,6 @@ public class TrainingRequest extends ProcessRequest {
 	 */
 	public void setModelConfiguration(ModelConfiguration modelConfiguration) {
 		this.modelConfiguration = modelConfiguration;
-	}
-
-	/**
-	 * Returns the user.
-	 *
-	 * @return The user.
-	 * @since 17
-	 */
-	public String getUser() {
-		return user;
-	}
-
-	/**
-	 * Set the user.
-	 *
-	 * @param user The user to set.
-	 * @since 17
-	 */
-	public void setUser(String user) {
-		this.user = user;
 	}
 
 }

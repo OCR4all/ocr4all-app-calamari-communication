@@ -21,21 +21,15 @@ public class ModelConfiguration {
 	private final String folder;
 
 	/**
-	 * The engine file.
-	 */
-	private final String engine;
-
-	/**
 	 * Creates model configurations.
 	 * 
 	 * @param folder The folder.
-	 * @param engine The engine file.
 	 * @since 17
 	 */
-	public ModelConfiguration(String folder, String engine) {
+	public ModelConfiguration(String folder) {
 		super();
+
 		this.folder = folder;
-		this.engine = engine;
 	}
 
 	/**
@@ -46,16 +40,6 @@ public class ModelConfiguration {
 	 */
 	public String getFolder() {
 		return folder;
-	}
-
-	/**
-	 * Returns the engine.
-	 *
-	 * @return The engine.
-	 * @since 17
-	 */
-	public String getEngine() {
-		return engine;
 	}
 
 }
