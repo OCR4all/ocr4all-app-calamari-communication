@@ -38,7 +38,7 @@ public class TrainingJobResponse extends JobResponse {
 	}
 
 	/**
-	 * Creates a job response for the api.
+	 * Creates a training job response for the api.
 	 * 
 	 * @param job    The job response.
 	 * @param engine The engine.
