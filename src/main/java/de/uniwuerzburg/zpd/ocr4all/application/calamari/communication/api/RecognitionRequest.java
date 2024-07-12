@@ -32,18 +32,6 @@ public class RecognitionRequest extends ProcessRequest {
 	private String folder;
 
 	/**
-	 * The input folder.
-	 */
-	@NotBlank
-	private String input;
-
-	/**
-	 * The output folder.
-	 */
-	@NotBlank
-	private String output;
-
-	/**
 	 * Default constructor for a recognition request for the api.
 	 * 
 	 * @since 17
@@ -60,17 +48,12 @@ public class RecognitionRequest extends ProcessRequest {
 	 * @param models    The models. Null or empty if not model is used.
 	 * @param folder    The working directory of the job. It is relative to the
 	 *                  project folder.
-	 * @param input     The input folder.
-	 * @param output    The output folder.
 	 * @since 17
 	 */
-	public RecognitionRequest(String key, List<String> arguments, List<BatchArgument> models, String folder,
-			String input, String output) {
+	public RecognitionRequest(String key, List<String> arguments, List<BatchArgument> models, String folder) {
 		super(key, arguments, models);
 
 		this.folder = folder.trim();
-		this.input = input.trim();
-		this.output = output.trim();
 	}
 
 	/**
@@ -92,46 +75,6 @@ public class RecognitionRequest extends ProcessRequest {
 	 */
 	public void setFolder(String folder) {
 		this.folder = folder;
-	}
-
-	/**
-	 * Returns the input folder.
-	 *
-	 * @return The input folder.
-	 * @since 17
-	 */
-	public String getInput() {
-		return input;
-	}
-
-	/**
-	 * Set the input folder.
-	 *
-	 * @param input The input folder to set.
-	 * @since 17
-	 */
-	public void setInput(String input) {
-		this.input = input;
-	}
-
-	/**
-	 * Returns the output folder.
-	 *
-	 * @return The output folder.
-	 * @since 17
-	 */
-	public String getOutput() {
-		return output;
-	}
-
-	/**
-	 * Set the output folder.
-	 *
-	 * @param output The output folder to set.
-	 * @since 17
-	 */
-	public void setOutput(String output) {
-		this.output = output;
 	}
 
 }
