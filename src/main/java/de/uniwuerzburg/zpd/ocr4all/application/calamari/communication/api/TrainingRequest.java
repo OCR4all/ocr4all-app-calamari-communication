@@ -9,6 +9,8 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.Batch;
 import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.BatchArgument;
 import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.ModelConfiguration;
@@ -32,6 +34,7 @@ public class TrainingRequest extends ProcessRequest {
 	 * The model id.
 	 */
 	@NotBlank
+	@JsonProperty("model-id")
 	private String modelId;
 
 	/**
@@ -44,6 +47,7 @@ public class TrainingRequest extends ProcessRequest {
 	 * The model configuration.
 	 */
 	@NotNull
+	@JsonProperty("model-configuration")
 	private ModelConfiguration modelConfiguration;
 
 	/**

@@ -18,7 +18,16 @@ public class ModelConfiguration {
 	/**
 	 * The folder.
 	 */
-	private final String folder;
+	private String folder;
+
+	/**
+	 * Default constructor for a model configuration.
+	 * 
+	 * @since 17
+	 */
+	public ModelConfiguration() {
+		super();
+	}
 
 	/**
 	 * Creates model configurations.
@@ -40,6 +49,16 @@ public class ModelConfiguration {
 	 */
 	public String getFolder() {
 		return folder;
+	}
+
+	/**
+	 * Set the folder.
+	 *
+	 * @param folder The folder to set.
+	 * @since 17
+	 */
+	public void setFolder(String folder) {
+		this.folder = folder;
 	}
 
 }
