@@ -23,6 +23,11 @@ public class EvaluationRequest extends ArgumentRequest {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * The folder.
+	 */
+	private String folder;
+
+	/**
 	 * Default constructor for an evaluation request for the api.
 	 * 
 	 * @since 17
@@ -34,11 +39,34 @@ public class EvaluationRequest extends ArgumentRequest {
 	/**
 	 * Creates an evaluation request for the api.
 	 * 
+	 * @param folder    The folder.
 	 * @param arguments The Calamari processor arguments.
 	 * @since 17
 	 */
-	public EvaluationRequest(List<String> arguments) {
+	public EvaluationRequest(String folder, List<String> arguments) {
 		super(arguments);
+
+		this.folder = folder;
+	}
+
+	/**
+	 * Returns the folder.
+	 *
+	 * @return The folder.
+	 * @since 17
+	 */
+	public String getFolder() {
+		return folder;
+	}
+
+	/**
+	 * Set the folder.
+	 *
+	 * @param folder The folder to set.
+	 * @since 17
+	 */
+	public void setFolder(String folder) {
+		this.folder = folder;
 	}
 
 }
