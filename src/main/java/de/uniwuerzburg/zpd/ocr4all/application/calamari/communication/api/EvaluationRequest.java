@@ -9,9 +9,6 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 
 import java.util.List;
 
-import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.BatchArgument;
-import jakarta.validation.constraints.NotBlank;
-
 /**
  * Defines evaluation requests for the api.
  *
@@ -19,17 +16,11 @@ import jakarta.validation.constraints.NotBlank;
  * @version 1.0
  * @since 17
  */
-public class EvaluationRequest extends ProcessRequest {
+public class EvaluationRequest extends ArgumentRequest {
 	/**
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * The collection.
-	 */
-	@NotBlank
-	private String collection;
 
 	/**
 	 * Default constructor for an evaluation request for the api.
@@ -43,36 +34,11 @@ public class EvaluationRequest extends ProcessRequest {
 	/**
 	 * Creates an evaluation request for the api.
 	 * 
-	 * @param key        The job key.
-	 * @param arguments  The Calamari processor arguments.
-	 * @param models     The models. Null or empty if not model is used.
-	 * @param collection The collection.
+	 * @param arguments The Calamari processor arguments.
 	 * @since 17
 	 */
-	public EvaluationRequest(String key, List<String> arguments, List<BatchArgument> models, String collection) {
-		super(key, arguments, models);
-
-		this.collection = collection;
-	}
-
-	/**
-	 * Returns the collection.
-	 *
-	 * @return The collection.
-	 * @since 17
-	 */
-	public String getCollection() {
-		return collection;
-	}
-
-	/**
-	 * Set the collection.
-	 *
-	 * @param collection The collection to set.
-	 * @since 17
-	 */
-	public void setCollection(String collection) {
-		this.collection = collection;
+	public EvaluationRequest(List<String> arguments) {
+		super(arguments);
 	}
 
 }
