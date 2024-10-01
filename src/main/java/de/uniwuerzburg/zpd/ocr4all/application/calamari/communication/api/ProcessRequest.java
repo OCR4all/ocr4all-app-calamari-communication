@@ -7,8 +7,6 @@
  */
 package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.BatchArgument;
@@ -22,7 +20,7 @@ import jakarta.validation.constraints.NotNull;
  * @version 1.0
  * @since 17
  */
-public class ProcessRequest implements Serializable {
+public class ProcessRequest extends ArgumentRequest {
 	/**
 	 * The serial version UID.
 	 */
@@ -33,12 +31,6 @@ public class ProcessRequest implements Serializable {
 	 */
 	@NotBlank
 	private String key;
-
-	/**
-	 * The Calamari processor arguments.
-	 */
-	@NotNull
-	private List<String> arguments = new ArrayList<>();
 
 	/**
 	 * The models. Null or empty if not model is used.
@@ -63,16 +55,10 @@ public class ProcessRequest implements Serializable {
 	 * @since 17
 	 */
 	public ProcessRequest(@NotBlank String key, @NotNull List<String> arguments, List<BatchArgument> models) {
-		super();
+		super(arguments);
 
 		this.key = key.trim();
 		this.models = models;
-		
-		this.arguments = new ArrayList<>();
-		if (arguments != null)
-			for (String argument : arguments)
-				if (argument != null && !argument.isBlank())
-					this.arguments.add(argument.trim());
 	}
 
 	/**
@@ -93,26 +79,6 @@ public class ProcessRequest implements Serializable {
 	 */
 	public void setKey(String key) {
 		this.key = key;
-	}
-
-	/**
-	 * Returns the Calamari processor arguments.
-	 *
-	 * @return The Calamari processor arguments.
-	 * @since 17
-	 */
-	public List<String> getArguments() {
-		return arguments;
-	}
-
-	/**
-	 * Set the Calamari processor arguments.
-	 *
-	 * @param arguments The arguments to set.
-	 * @since 17
-	 */
-	public void setArguments(List<String> arguments) {
-		this.arguments = arguments;
 	}
 
 	/**

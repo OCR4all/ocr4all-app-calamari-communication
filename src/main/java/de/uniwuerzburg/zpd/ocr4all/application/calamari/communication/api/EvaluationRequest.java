@@ -9,9 +9,6 @@ package de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.api;
 
 import java.util.List;
 
-import de.uniwuerzburg.zpd.ocr4all.application.calamari.communication.core.BatchArgument;
-import jakarta.validation.constraints.NotBlank;
-
 /**
  * Defines evaluation requests for the api.
  *
@@ -19,17 +16,16 @@ import jakarta.validation.constraints.NotBlank;
  * @version 1.0
  * @since 17
  */
-public class EvaluationRequest extends ProcessRequest {
+public class EvaluationRequest extends ArgumentRequest {
 	/**
 	 * The serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The collection.
+	 * The folder.
 	 */
-	@NotBlank
-	private String collection;
+	private String folder;
 
 	/**
 	 * Default constructor for an evaluation request for the api.
@@ -43,36 +39,34 @@ public class EvaluationRequest extends ProcessRequest {
 	/**
 	 * Creates an evaluation request for the api.
 	 * 
-	 * @param key        The job key.
-	 * @param arguments  The Calamari processor arguments.
-	 * @param models     The models. Null or empty if not model is used.
-	 * @param collection The collection.
+	 * @param folder    The folder.
+	 * @param arguments The Calamari processor arguments.
 	 * @since 17
 	 */
-	public EvaluationRequest(String key, List<String> arguments, List<BatchArgument> models, String collection) {
-		super(key, arguments, models);
+	public EvaluationRequest(String folder, List<String> arguments) {
+		super(arguments);
 
-		this.collection = collection;
+		this.folder = folder;
 	}
 
 	/**
-	 * Returns the collection.
+	 * Returns the folder.
 	 *
-	 * @return The collection.
+	 * @return The folder.
 	 * @since 17
 	 */
-	public String getCollection() {
-		return collection;
+	public String getFolder() {
+		return folder;
 	}
 
 	/**
-	 * Set the collection.
+	 * Set the folder.
 	 *
-	 * @param collection The collection to set.
+	 * @param folder The folder to set.
 	 * @since 17
 	 */
-	public void setCollection(String collection) {
-		this.collection = collection;
+	public void setFolder(String folder) {
+		this.folder = folder;
 	}
 
 }
